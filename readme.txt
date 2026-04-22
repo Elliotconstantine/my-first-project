@@ -1,3 +1,3 @@
 Hello, this is my first repository!
 This is the second version of my code.
-"This is the main branch update."
+"This is the final merged version."
