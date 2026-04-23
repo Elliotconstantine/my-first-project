@@ -1,12 +1,15 @@
 import random
 secret_number = random.randint(1, 100)
-guess = 0
-print("欢迎来到猜数字游戏！我想了一个1到100之间的数字。")
-while guess != secret_number:
-    guess = int(input("请输入你的猜测："))
+print("Welcome to the Guess the Number Game!")
+while True:
+    guess = int(input("Enter your guess (between 1 and 100): "))
     if guess < secret_number:
-        print("太小了！再试一次。")
+        print("Too low! Try again.")
     elif guess > secret_number:
-        print("太大了！再试一次。")
+        print("Too high! Try again.")
     else:
-        print("恭喜你！猜对了！")
+        print("Congratulations! You've guessed the number!")
+        break   
+
+
+    
