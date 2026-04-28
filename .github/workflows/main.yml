@@ -1,0 +1,27 @@
+name: Python Auto-Test
+
+# 触发条件：当有代码推送到 main 分支时
+on:
+  push:
+    branches: [ "main" ]
+
+# 定义任务
+jobs:
+  build:
+    # 使用最新的 Ubuntu 系统作为运行环境
+    runs-on: ubuntu-latest
+
+    steps:
+      # 步骤 1：下载你的代码
+      - uses: actions/checkout@v3
+
+      # 步骤 2：安装 Python 环境
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      # 步骤 3：运行你的代码
+      - name: Run Python Script
+        run: |
+          python main.py
