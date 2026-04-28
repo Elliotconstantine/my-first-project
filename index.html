@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的第一个项目</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        #message { color: blue; font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>欢迎来到我的全栈项目</h1>
+    <p>这是前端页面（GitHub Pages）。</p>
+
+    <!-- 这里是我们预留的“坑”，用来填后端的数据 -->
+    <div id="message">正在请求后端数据...</div>
+
+    <script>
+        // 这里的代码会在网页加载完成后运行
+        fetch('http://127.0.0.1:5000/api/hello')
+            .then(response => response.json()) // 把拿到的数据转成 JSON
+            .then(data => {
+                // 找到页面上的 div，把文字改成后端返回的内容
+                document.getElementById('message').innerText = data.message;
+            })
+            .catch(error => {
+                console.error('出错了:', error);
+                document.getElementById('message').innerText = "连接后端失败（记得运行 app.py 哦！）";
+            });
+    </script>
+
+</body>
+</html>
